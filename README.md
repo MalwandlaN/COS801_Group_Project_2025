@@ -3,10 +3,10 @@
 - Model: DistilBERT (Uncased) with Low-Rank Adaptation (LoRA)
 - Task: Token Classification / Named Entity Recognition
 
-# 📌 Project Overview
+# Project Overview
 This project implements a Named Entity Recognition (NER) system designed to extract specific disaster-related information from text. It identifies entities such as natural hazards, infrastructure damage, affected populations, and locations. To achieve efficient fine-tuning on a limited compute budget, this project utilizes Parameter-Efficient Fine-Tuning (PEFT). Specifically, it employs LoRA (Low-Rank Adaptation) to inject trainable rank decomposition matrices into the distilbert-base-uncased model while freezing the pre-trained weights.
 
-# 🏷️ Entity Labels
+# Entity Labels
 
 - The model is trained to recognize the following entities:
 
@@ -18,7 +18,7 @@ This project implements a Named Entity Recognition (NER) system designed to extr
 
 - Context: Location, Date
 
-# 🏗️ Model Architecture
+# Model Architecture
 
 - Base Model: distilbert-base-uncased (6 Transformer layers).
 
@@ -32,7 +32,7 @@ This project implements a Named Entity Recognition (NER) system designed to extr
 
 - Trainable Parameters: Only ~0.25% of the total parameters (approx. 170k out of 66M) are trained, significantly reducing memory usage.
 
-# 📊 Dataset
+# Dataset
 
 The project uses a disaster dataset formatted in the CoNLL standard (token per line with corresponding label).
 
@@ -46,7 +46,7 @@ The project uses a disaster dataset formatted in the CoNLL standard (token per l
 
 - Test: 1,921
 
-# ⚙️ Installation & Requirements
+# Installation & Requirements
 
 - To run this project, you need Python and the following libraries.
 
@@ -54,7 +54,7 @@ The project uses a disaster dataset formatted in the CoNLL standard (token per l
 - pip install transformers datasets evaluate seqeval peft accelerate bitsandbytes
 
 
-# 🚀 Usage
+# Usage
 
 The core logic is contained within the Jupyter Notebook.
 
@@ -74,7 +74,7 @@ The core logic is contained within the Jupyter Notebook.
 
 - Evaluation Strategy: Epoch-based
 
-📈 Results
+Results
 
 The model was evaluated on the test set using the seqeval metric.
 
@@ -88,20 +88,17 @@ Metric Score:
 
 - Precision 65.1%
 
-📂 File Structure
+File Structure
 
 ```
 ├── data/
 │   └── dataset.txt        # CoNLL format data
 ├── notebooks/
 │   └── disaster_ner_lora.ipynb
-├── results/               # Training checkpoints
 └── README.md
 ```
 
-
-
-# 🧠 Why LoRA?
+# Why LoRA?
 
 Instead of fine-tuning all 66 million parameters of DistilBERT, LoRA allows us to fine-tune only the injected adapter layers. This results in:
 
@@ -111,7 +108,6 @@ Instead of fine-tuning all 66 million parameters of DistilBERT, LoRA allows us t
 
 - Modular Weights: The adapter weights are lightweight (~MBs) compared to the full model (~GBs).
 
-# 📜 License
-
-- MIT License
+# References
+Hafsa, N. E., Alzoubi, H. M., & Atikah Saeed Almutlq. (2025). Accurate disaster entity recognition based on contextual embeddings in self-attentive BiLSTM-CRF. PLoS ONE, 20(3), e0318262–e0318262. https://doi.org/10.1371/journal.pone.0318262 
 
