@@ -54,7 +54,7 @@ The project uses a disaster dataset formatted in the CoNLL standard (token per l
 - pip install transformers datasets evaluate seqeval peft accelerate bitsandbytes
 
 
-# Usage
+# Method
 
 The core logic is contained within the Jupyter Notebook.
 
@@ -74,7 +74,7 @@ The core logic is contained within the Jupyter Notebook.
 
 - Evaluation Strategy: Epoch-based
 
-Results
+# Results
 
 The model was evaluated on the test set using the seqeval metric.
 
@@ -88,7 +88,7 @@ Metric Score:
 
 - Precision 65.1%
 
-File Structure
+# File Structure
 
 ```
 ├── data/
