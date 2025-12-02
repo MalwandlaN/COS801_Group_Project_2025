@@ -92,7 +92,9 @@ Metric Score:
 
 ```
 ├── data/
-│   └── dataset.txt        # CoNLL format data
+│   └──Word_2_vector.txt
+|   └── dataset.txt
+|   └── vectors.100d.txt
 ├── notebooks/
 │   └── disaster_ner_lora.ipynb
 └── README.md
